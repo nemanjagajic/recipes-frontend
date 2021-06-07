@@ -1,17 +1,29 @@
-import * as React from 'react';
+import * as React from 'react'
 import {
   Route,
   Redirect,
   RouteProps,
-} from 'react-router-dom';
+} from 'react-router-dom'
+import { useEffect } from 'react'
+import { useHistory } from 'react-router'
+import { navigateHomeAndReload } from './utils/helpers'
+import { AUTH_PATH } from './constants/constants'
 
 interface PrivateRouteProps extends RouteProps {
   component: any;
 }
 
 const PrivateRoute = (props: PrivateRouteProps) => {
-  const { component: Component, ...rest } = props;
+  const { component: Component, ...rest } = props
   const isSignedIn = !!localStorage.getItem('token')
+  const isAuthRoute = window.location.href.includes(AUTH_PATH)
+  const history = useHistory()
+
+  useEffect(() => {
+    if (isSignedIn && isAuthRoute) {
+      navigateHomeAndReload(history)
+    }
+  }, [])
 
   return (
     <Route

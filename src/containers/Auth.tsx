@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
 import { navigateHomeAndReload } from '../utils/helpers'
+import { UserAuthData } from '../ts/types'
+import authService from '../services/api/authService'
 
 const Auth = () => {
   const history = useHistory()
-  const [userData, setUserData] = useState({ email: '', password: '' })
+  const [userData, setUserData] = useState<UserAuthData>({ email: '', password: '' })
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
     setUserData({ ...userData, [name]: value })
   }
 
-  const handleLogin = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault()
-    localStorage.setItem('token', 'testToken')
+    const response = await authService.logIn(userData)
+    localStorage.setItem('token', response.data.token)
     navigateHomeAndReload(history)
   }
 
@@ -42,7 +45,7 @@ const Auth = () => {
         />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Auth;
+export default Auth

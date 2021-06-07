@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import {navigateHomeAndReload} from '../utils/helpers'
+import { navigateHomeAndReload } from '../utils/helpers'
 
 const Home = () => {
   const history = useHistory()
