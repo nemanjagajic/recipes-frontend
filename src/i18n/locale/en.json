@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "buttons": {
+      "logIn": "Log in",
+      "logOut": "Log out"
+    },
+    "placeholders": {
+      "email": "Email",
+      "password": "Password"
+    }
+  }
+}
