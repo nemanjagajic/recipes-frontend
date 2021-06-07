@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router'
-import { navigateHomeAndReload } from './utils/helpers'
+import { navigateAndReload } from './utils/helpers'
 import { AUTH_PATH } from './constants/constants'
 
 interface PrivateRouteProps extends RouteProps {
@@ -21,7 +21,7 @@ const PrivateRoute = (props: PrivateRouteProps) => {
 
   useEffect(() => {
     if (isSignedIn && isAuthRoute) {
-      navigateHomeAndReload(history)
+      navigateAndReload(history, '/dashboard')
     }
   }, [])
 

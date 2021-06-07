@@ -8,5 +8,11 @@
       "email": "Email",
       "password": "Password"
     }
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "home": {
+    "title": "Home"
   }
 }

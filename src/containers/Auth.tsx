@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
-import { navigateHomeAndReload } from '../utils/helpers'
+import { navigateAndReload } from '../utils/helpers'
 import { UserAuthData } from '../ts/types'
 import authService from '../services/api/authService'
 import $t from '../i18n'
@@ -18,7 +18,7 @@ const Auth = () => {
     e.preventDefault()
     const response = await authService.logIn(userData)
     localStorage.setItem('token', response.data.token)
-    navigateHomeAndReload(history)
+    navigateAndReload(history, '/dashboard')
   }
 
   return (
