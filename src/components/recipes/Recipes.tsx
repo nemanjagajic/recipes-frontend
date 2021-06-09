@@ -1,5 +1,5 @@
 import React from 'react';
-import {useFetchRecipes} from '../hooks/useFetchRecipes'
+import {useFetchRecipes} from '../../hooks/useFetchRecipes'
 
 const Recipes = () => {
   const { data: recipes } = useFetchRecipes()

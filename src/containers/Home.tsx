@@ -1,6 +1,6 @@
 import React from 'react'
 import $t from '../i18n'
-import Recipes from './Recipes'
+import Recipes from '../components/recipes/Recipes'
 
 const Home = () => {
 

@@ -14,5 +14,11 @@
   },
   "home": {
     "title": "Home"
+  },
+  "recipe": {
+    "title": "Title",
+    "shortDescription": "Short description",
+    "description": "Description",
+    "addRecipe": "Add recipe"
   }
 }
