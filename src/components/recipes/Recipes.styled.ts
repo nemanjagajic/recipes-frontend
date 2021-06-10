@@ -8,10 +8,20 @@ export const Wrapper = styled.div`
 export const RecipeItem = styled.div`
   margin-bottom: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #f2f2f2;
+  align-items: center;
+  background-color: ${({ theme }) => theme.gray_100};
+  padding: 30px;
+  border-radius: 20px;
 `
 
 export const Image = styled.img`
   width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+`
+
+export const TitleWrapper = styled.div`
+  margin-bottom: 20px;
 `
