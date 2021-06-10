@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import $t from '../../i18n';
-import {Recipe} from '../../ts/types'
+import { Recipe } from '../../ts/recipeTypes'
 
 const AddRecipe = () => {
   const [recipeData, setRecipeData] = useState<Recipe>({ description: '', shortDescription: '', title: '' })
@@ -15,26 +15,26 @@ const AddRecipe = () => {
   return (
     <form className={'content'}>
       <input
-        placeholder={$t('recipe.title')}
+        placeholder={$t('recipes.title')}
         name={'title'}
         value={recipeData?.title}
         onChange={onChange}
       />
       <input
-        placeholder={$t('recipe.description')}
+        placeholder={$t('recipes.description')}
         name={'description'}
         value={recipeData?.description}
         onChange={onChange}
       />
       <input
-        placeholder={$t('recipe.shortDescription')}
+        placeholder={$t('recipes.shortDescription')}
         name={'shortDescription'}
         value={recipeData?.shortDescription}
         onChange={onChange}
       />
       <input
         type={'submit'}
-        value={$t('recipe.addRecipe')}
+        value={$t('recipes.addRecipe')}
         disabled={!isValid()}
       />
     </form>

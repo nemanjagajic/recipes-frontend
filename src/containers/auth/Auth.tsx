@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
-import { navigateAndReload } from '../utils/helpers'
-import { UserAuthData } from '../ts/types'
-import authService from '../services/api/authService'
-import $t from '../i18n'
+import { navigateAndReload } from '../../utils/helpers'
+import { UserAuthData } from '../../ts/userTypes'
+import authService from '../../services/api/authService'
+import $t from '../../i18n'
 
 const Auth = () => {
   const history = useHistory()

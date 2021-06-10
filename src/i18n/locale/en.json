@@ -15,7 +15,7 @@
   "home": {
     "title": "Home"
   },
-  "recipe": {
+  "recipes": {
     "title": "Title",
     "shortDescription": "Short description",
     "description": "Description",

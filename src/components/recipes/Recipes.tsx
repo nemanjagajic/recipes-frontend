@@ -1,15 +1,19 @@
 import React from 'react';
-import {useFetchRecipes} from '../../hooks/useFetchRecipes'
+import { useFetchRecipes } from '../../hooks/recipes/useFetchRecipes'
+import imagePlaceholder from '../../assets/recipePlaceholder.png'
+import * as Styled from './Recipes.styled'
 
 const Recipes = () => {
   const { data: recipes } = useFetchRecipes()
 
   return (
-    <div>
+    <Styled.Wrapper>
       {recipes?.map((recipe) => (
-        <div>{`${recipe._id}, ${recipe.title}, ${recipe.description}, ${recipe.shortDescription}`}</div>
+        <Styled.RecipeItem key={recipe._id}>
+          <Styled.Image src={imagePlaceholder}/>
+        </Styled.RecipeItem>
       ))}
-    </div>
+    </Styled.Wrapper>
   );
 };
 

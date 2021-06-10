@@ -1,9 +1,9 @@
 import React from 'react';
 import PrivateRoute from './PrivateRoute'
 import { Route } from 'react-router'
-import Auth from './containers/Auth'
-import Home from './containers/Home'
-import Dashboard from './containers/Dashboard'
+import Auth from './containers/auth/Auth'
+import Home from './containers/home/Home'
+import Dashboard from './containers/dashboard/Dashboard'
 
 function App() {
   return (

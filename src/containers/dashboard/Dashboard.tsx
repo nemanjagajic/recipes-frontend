@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import { navigateAndReload } from '../utils/helpers'
-import $t from '../i18n'
-import AddRecipe from '../components/recipes/AddRecipe'
+import { navigateAndReload } from '../../utils/helpers'
+import $t from '../../i18n'
+import AddRecipe from '../../components/recipes/AddRecipe'
 
 const Dashboard = () => {
   const history = useHistory()
