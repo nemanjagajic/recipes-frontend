@@ -20,5 +20,10 @@
     "shortDescription": "Short description",
     "description": "Description",
     "addRecipe": "Add recipe"
+  },
+  "categories": {
+    "title": "Title",
+    "description": "Description",
+    "addCategory": "Add category"
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import $t from '../../i18n';
-import { Recipe } from '../../ts/recipeTypes'
+import {Recipe, RecipeInput} from '../../ts/recipeTypes'
 
 const AddRecipe = () => {
-  const [recipeData, setRecipeData] = useState<Recipe>({ description: '', shortDescription: '', title: '' })
+  const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '' })
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
