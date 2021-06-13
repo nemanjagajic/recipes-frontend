@@ -15,9 +15,17 @@ class RecipesService {
     }
   }
 
-  addRecipe = async (category: RecipeInput) => {
+  addRecipe = async (recipe: RecipeInput) => {
     try {
-      const { data } = await request.post(API_ENDPOINTS.RECIPES, category)
+      const recipeData = new FormData()
+      recipeData.append('title', recipe.title)
+      recipeData.append('description', recipe.description)
+      recipeData.append('shortDescription', recipe.shortDescription)
+      recipeData.append('categories', JSON.stringify(recipe.categories))
+      // @ts-ignore
+      if (recipe.image) recipeData.append('image', recipe.image)
+
+      const { data } = await request.post(API_ENDPOINTS.RECIPES, recipeData)
       return data;
     } catch(e) {
       throw e.response.data.message

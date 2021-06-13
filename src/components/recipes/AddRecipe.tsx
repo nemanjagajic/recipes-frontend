@@ -5,10 +5,10 @@ import { useAddRecipe } from '../../hooks/recipes/useAddRecipe'
 import { useFetchCategories } from '../../hooks/categories/useFetchCategories'
 
 const AddRecipe = () => {
-  const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '', categories: [] })
+  const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '', categories: [], image: null })
 
   const clearInput = () => {
-    setRecipeData({ description: '', shortDescription: '', title: '', categories: [] })
+    setRecipeData({ description: '', shortDescription: '', title: '', categories: [], image: null })
     const element = document.getElementById('category') as HTMLSelectElement
     if (element) {
       element.value = 'default'
@@ -23,6 +23,12 @@ const AddRecipe = () => {
     const { name, value } = e.currentTarget
     setRecipeData({ ...recipeData, [name]: name === 'categories' ? [value] : value })
   }
+
+  const fileSelectHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    // @ts-ignore
+    const image = e.target.files[0];
+    setRecipeData({ ...recipeData, image })
+  };
 
   const handleAddRecipe = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault()
@@ -62,6 +68,12 @@ const AddRecipe = () => {
           return <option key={category._id} value={category._id}>{category.title}</option>
         })}
       </select>
+      <input
+        type="file"
+        name="file"
+        accept=".png, .jpg"
+        onChange={fileSelectHandler}
+      />
       <input
         type={'submit'}
         value={$t('recipes.addRecipe')}
