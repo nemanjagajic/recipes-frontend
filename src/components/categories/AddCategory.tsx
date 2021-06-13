@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import $t from '../../i18n';
 import { CategoryInput } from '../../ts/categoryTypes'
+import { useAddCategory } from '../../hooks/categories/useAddCategory'
 
 const AddCategory = () => {
   const [categoryData, setCategoryData] = useState<CategoryInput>({ description: '', title: '' })
+
+  const clearInput = () => {
+    setCategoryData({ description: '', title: '' })
+  }
+
+  const { mutate: addCategory, error } = useAddCategory(clearInput)
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
@@ -11,6 +18,11 @@ const AddCategory = () => {
   }
 
   const isValid = () => categoryData?.title && categoryData?.description
+
+  const handleAddCategory = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    addCategory(categoryData)
+  }
 
   return (
     <form className={'content'}>
@@ -30,7 +42,9 @@ const AddCategory = () => {
         type={'submit'}
         value={$t('categories.addCategory')}
         disabled={!isValid()}
+        onClick={handleAddCategory}
       />
+      {error}
     </form>
   );
 };

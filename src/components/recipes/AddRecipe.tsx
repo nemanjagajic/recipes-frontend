@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import $t from '../../i18n';
-import {Recipe, RecipeInput} from '../../ts/recipeTypes'
+import { RecipeInput } from '../../ts/recipeTypes'
 
 const AddRecipe = () => {
   const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '' })

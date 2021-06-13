@@ -10,7 +10,7 @@ class RecipesService {
       const { data } = await request.get(API_ENDPOINTS.RECIPES);
       return data;
     } catch (e) {
-      throw e
+      throw e.response.data.message
     }
   }
 }
