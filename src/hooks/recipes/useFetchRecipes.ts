@@ -4,7 +4,7 @@ import { Recipe } from '../../ts/recipeTypes';
 
 export const useFetchRecipes = () => {
   const { data, error, isLoading, isFetching } = useQuery<Recipe[]>(
-    'fetchRecipes',
+    'recipes',
     recipesService.getAllRecipes
   );
   return { data, error, isLoading, isFetching };

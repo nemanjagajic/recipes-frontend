@@ -44,7 +44,7 @@ const AddCategory = () => {
         disabled={!isValid()}
         onClick={handleAddCategory}
       />
-      {error}
+      {typeof error === 'string' && error}
     </form>
   );
 };

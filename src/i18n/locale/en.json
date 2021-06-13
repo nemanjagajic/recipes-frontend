@@ -19,7 +19,8 @@
     "title": "Title",
     "shortDescription": "Short description",
     "description": "Description",
-    "addRecipe": "Add recipe"
+    "addRecipe": "Add recipe",
+    "selectOption": "-- select an option --"
   },
   "categories": {
     "title": "Title",

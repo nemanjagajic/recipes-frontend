@@ -12,6 +12,8 @@ export const Title = styled.div<{
 }>`
   font-size: ${props => props.fontSize? `${props.fontSize}px` : '32px'};
   color: ${props => props.color || props.theme.gray_200};
+  text-align: center;
+  max-width: 250px;
   margin-top: ${props => props.marginTop ? `${props.marginTop}px` : 0 }};
   margin-bottom: ${props => props.marginBottom ? `${props.marginBottom}px` : 0 }};
 `
