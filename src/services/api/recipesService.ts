@@ -17,13 +17,16 @@ class RecipesService {
 
   addRecipe = async (recipe: RecipeInput) => {
     try {
+      console.log(recipe.images)
       const recipeData = new FormData()
       recipeData.append('title', recipe.title)
       recipeData.append('description', recipe.description)
       recipeData.append('shortDescription', recipe.shortDescription)
-      recipeData.append('categories', JSON.stringify(recipe.categories))
       // @ts-ignore
-      if (recipe.image) recipeData.append('image', recipe.image)
+      recipeData.append('categories[]', recipe.categories)
+      recipe.images.forEach(image => {
+        recipeData.append('images', image)
+      })
 
       const { data } = await request.post(API_ENDPOINTS.RECIPES, recipeData)
       return data;

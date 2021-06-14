@@ -5,10 +5,10 @@ import { useAddRecipe } from '../../hooks/recipes/useAddRecipe'
 import { useFetchCategories } from '../../hooks/categories/useFetchCategories'
 
 const AddRecipe = () => {
-  const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '', categories: [], image: null })
+  const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '', categories: [], images: [] })
 
   const clearInput = () => {
-    setRecipeData({ description: '', shortDescription: '', title: '', categories: [], image: null })
+    setRecipeData({ description: '', shortDescription: '', title: '', categories: [], images: [] })
     const element = document.getElementById('category') as HTMLSelectElement
     if (element) {
       element.value = 'default'
@@ -27,7 +27,7 @@ const AddRecipe = () => {
   const fileSelectHandler = (e: React.FormEvent<HTMLInputElement>) => {
     // @ts-ignore
     const image = e.target.files[0];
-    setRecipeData({ ...recipeData, image })
+    setRecipeData(prevRecipeData => ({ ...recipeData, images: [...prevRecipeData.images, image] }))
   };
 
   const handleAddRecipe = (e: React.FormEvent<HTMLInputElement>) => {
@@ -70,8 +70,9 @@ const AddRecipe = () => {
       </select>
       <input
         type="file"
-        name="file"
+        name="images"
         accept=".png, .jpg"
+        multiple
         onChange={fileSelectHandler}
       />
       <input

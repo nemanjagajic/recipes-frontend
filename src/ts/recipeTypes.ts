@@ -10,6 +10,6 @@ export type RecipeInput = {
   title: string;
   description: string;
   shortDescription: string;
-  categories: [];
-  image: File | null
+  categories: string[];
+  images: File[]
 }
