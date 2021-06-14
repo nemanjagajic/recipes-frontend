@@ -17,7 +17,6 @@ class RecipesService {
 
   addRecipe = async (recipe: RecipeInput) => {
     try {
-      console.log(recipe.images)
       const recipeData = new FormData()
       recipeData.append('title', recipe.title)
       recipeData.append('description', recipe.description)
