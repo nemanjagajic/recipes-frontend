@@ -3,7 +3,8 @@ export interface Recipe {
   title: string;
   description: string;
   shortDescription: string;
-  createdAt: Date
+  images: string[]
+  createdAt: Date;
 }
 
 export type RecipeInput = {
