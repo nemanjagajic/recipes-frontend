@@ -3,7 +3,7 @@ import { useFetchRecipes } from '../../hooks/recipes/useFetchRecipes'
 import imagePlaceholder from '../../assets/recipePlaceholder.png'
 import * as Styled from './Recipes.styled'
 import { Title, Text } from '../../styles/shared'
-import {IMAGES_LOCATION} from '../../constants/constants'
+import { IMAGES_LOCATION } from '../../constants/constants'
 
 const TITLE_MARGIN_BOTTOM = 20
 
