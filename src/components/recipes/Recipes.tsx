@@ -23,7 +23,7 @@ const Recipes = () => {
   return (
     <Styled.Wrapper>
       {recipes?.map((recipe) => (
-        <Styled.RecipeItem key={recipe._id}>O
+        <Styled.RecipeItem key={recipe._id}>
           {recipe.coverImage ? renderCoverImage(recipe.coverImage) : <Styled.Image src={imagePlaceholder}/>}
           {renderImages(recipe.images)}
           <Title marginBottom={TITLE_MARGIN_BOTTOM}>{recipe.title}</Title>
