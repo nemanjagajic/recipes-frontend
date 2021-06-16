@@ -3,7 +3,7 @@ export interface Recipe {
   title: string;
   description: string;
   shortDescription: string;
-  coverImage: string
+  coverImage: string | null;
   images: string[];
   createdAt: Date;
 }
