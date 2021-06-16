@@ -23,6 +23,8 @@ class RecipesService {
       recipeData.append('shortDescription', recipe.shortDescription)
       // @ts-ignore
       recipeData.append('categories[]', recipe.categories)
+
+      if (recipe.coverImage) recipeData.append('coverImage', recipe.coverImage)
       recipe.images.forEach(image => {
         recipeData.append('images', image)
       })
