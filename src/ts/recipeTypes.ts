@@ -5,6 +5,7 @@ export interface Recipe {
   shortDescription: string;
   coverImage: string | null;
   images: string[];
+  categories: string[];
   createdAt: Date;
 }
 
