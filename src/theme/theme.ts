@@ -1,8 +1,13 @@
 const theme = {
   fontFamily: 'Arial',
-  main: '#26a69a',
+  main: '#ef5350',
+  main_light: '#ef9a9a',
+  main_dark: '#e53935',
+  accent: '#ffeb3b',
   gray_100: '#f5f5f5',
-  gray_200: '#555'
+  gray_200: '#555',
+  gray_300: '#f2f2f2',
+  white: '#fff',
 }
 
 export default theme

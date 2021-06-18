@@ -4,6 +4,7 @@ import { navigateAndReload } from '../../utils/helpers'
 import $t from '../../i18n'
 import AddRecipe from '../../components/recipes/AddRecipe'
 import AddCategory from '../../components/categories/AddCategory'
+import Navbar from '../../components/shared/Navbar'
 
 const Dashboard = () => {
   const history = useHistory()
@@ -15,8 +16,11 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Navbar
+        itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/')}]}
+        itemsFromRight={[{ title: $t('auth.buttons.logOut'), onClick: logOut }]}
+      />
       {$t('dashboard.title')}
-      <button onClick={logOut}>{$t('auth.buttons.logOut')}</button>
       <AddCategory />
       <AddRecipe />
     </div>

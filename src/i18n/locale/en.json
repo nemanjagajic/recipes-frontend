@@ -10,7 +10,8 @@
     }
   },
   "dashboard": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "mainPage": "Main page"
   },
   "home": {
     "title": "Home"
