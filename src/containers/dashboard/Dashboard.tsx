@@ -44,8 +44,11 @@ const Dashboard = () => {
         ]}
         selectedOption={selectedForm}
       />
-      {/*<AddCategory />*/}
-      {/*<AddRecipe />*/}
+      {selectedForm === ADD_FORM_TYPE.ADD_RECIPE ? (
+        <AddRecipe />
+      ) : (
+        <AddCategory />
+      )}
     </Styled.Wrapper>
   );
 };
