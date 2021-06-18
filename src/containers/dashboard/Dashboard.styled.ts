@@ -5,3 +5,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
 `
+
+export const FormWrapper = styled.div`
+  width: 700px
+`

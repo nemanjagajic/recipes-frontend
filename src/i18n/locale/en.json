@@ -20,11 +20,13 @@
     "shortDescription": "Short description",
     "description": "Description",
     "addRecipe": "Add recipe",
+    "publishRecipe": "Publish recipe",
     "selectOption": "-- select an option --"
   },
   "categories": {
     "title": "Title",
     "description": "Description",
-    "addCategory": "Add category"
+    "addCategory": "Add category",
+    "publishCategory": "Publish category"
   }
 }

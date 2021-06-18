@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import $t from '../../i18n';
+import * as Styled from './AddCategorie.styled'
 import { CategoryInput } from '../../ts/categoryTypes'
 import { useAddCategory } from '../../hooks/categories/useAddCategory'
 
@@ -25,27 +26,27 @@ const AddCategory = () => {
   }
 
   return (
-    <form className={'content'}>
-      <input
+    <Styled.FormWrapper className={'content'}>
+      <Styled.FormInput
         placeholder={$t('categories.title')}
         name={'title'}
         value={categoryData?.title}
         onChange={onChange}
       />
-      <input
+      <Styled.FormInput
         placeholder={$t('categories.description')}
         name={'description'}
         value={categoryData?.description}
         onChange={onChange}
       />
-      <input
+      <Styled.FormSubmit
         type={'submit'}
-        value={$t('categories.addCategory')}
+        value={$t('categories.publishCategory')}
         disabled={!isValid()}
         onClick={handleAddCategory}
       />
       {typeof error === 'string' && error}
-    </form>
+    </Styled.FormWrapper>
   );
 };
 

@@ -32,23 +32,25 @@ const Dashboard = () => {
       <Switcher
         switcherOptions={[
           {
-            title: 'Add Recipe',
+            title: $t('recipes.addRecipe'),
             onClick: () => setSelectedForm(ADD_FORM_TYPE.ADD_RECIPE),
             isSelected: selectedForm ===  ADD_FORM_TYPE.ADD_RECIPE
           },
           {
-            title: 'Add Category',
+            title: $t('categories.addCategory'),
             onClick: () => setSelectedForm(ADD_FORM_TYPE.ADD_CATEGORY),
             isSelected: selectedForm ===  ADD_FORM_TYPE.ADD_CATEGORY
           }
         ]}
         selectedOption={selectedForm}
       />
-      {selectedForm === ADD_FORM_TYPE.ADD_RECIPE ? (
-        <AddRecipe />
-      ) : (
-        <AddCategory />
-      )}
+      <Styled.FormWrapper>
+        {selectedForm === ADD_FORM_TYPE.ADD_RECIPE ? (
+          <AddRecipe />
+        ) : (
+          <AddCategory />
+        )}
+      </Styled.FormWrapper>
     </Styled.Wrapper>
   );
 };

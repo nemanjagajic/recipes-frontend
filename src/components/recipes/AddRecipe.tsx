@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import $t from '../../i18n';
 import { RecipeInput } from '../../ts/recipeTypes'
+import * as Styled from './AddRecipe.styled'
 import { useAddRecipe } from '../../hooks/recipes/useAddRecipe'
 import { useFetchCategories } from '../../hooks/categories/useFetchCategories'
 
@@ -19,7 +20,7 @@ const AddRecipe = () => {
 
   const { data: categories } = useFetchCategories()
 
-  const onChange = (e: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+  const onChange = (e: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> | any) => {
     const { name, value } = e.currentTarget
     setRecipeData({ ...recipeData, [name]: name === 'categories' ? [value] : value })
   }
@@ -42,26 +43,26 @@ const AddRecipe = () => {
   const isValid = () => recipeData?.title && recipeData?.shortDescription && recipeData?.description && recipeData?.categories.length > 0
 
   return (
-    <form className={'content'}>
-      <input
+    <Styled.FormWrapper className={'content'}>
+      <Styled.FormInput
         placeholder={$t('recipes.title')}
         name={'title'}
         value={recipeData?.title}
         onChange={onChange}
       />
-      <input
+      <Styled.FormInput
         placeholder={$t('recipes.shortDescription')}
         name={'shortDescription'}
         value={recipeData?.shortDescription}
         onChange={onChange}
       />
-      <input
+      <Styled.FormTextarea
         placeholder={$t('recipes.description')}
         name={'description'}
         value={recipeData?.description}
         onChange={onChange}
       />
-      <select
+      <Styled.FormSelect
         id={'category'}
         name={'categories'}
         onChange={onChange}
@@ -71,7 +72,7 @@ const AddRecipe = () => {
         {categories?.map(category => {
           return <option key={category._id} value={category._id}>{category.title}</option>
         })}
-      </select>
+      </Styled.FormSelect>
       <input
         type="file"
         name="coverImage"
@@ -85,14 +86,14 @@ const AddRecipe = () => {
         multiple
         onChange={handleAddImage}
       />
-      <input
+      <Styled.FormSubmit
         type={'submit'}
-        value={$t('recipes.addRecipe')}
+        value={$t('recipes.publishRecipe')}
         disabled={!isValid()}
         onClick={handleAddRecipe}
       />
       {typeof error === 'string' && error}
-    </form>
+    </Styled.FormWrapper>
   );
 };
 
