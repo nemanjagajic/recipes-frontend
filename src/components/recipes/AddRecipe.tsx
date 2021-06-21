@@ -4,6 +4,7 @@ import { RecipeInput } from '../../ts/recipeTypes'
 import * as Styled from './AddRecipe.styled'
 import { useAddRecipe } from '../../hooks/recipes/useAddRecipe'
 import { useFetchCategories } from '../../hooks/categories/useFetchCategories'
+import ImageSelector from '../shared/ImageSelector'
 
 const AddRecipe = () => {
   const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '', categories: [], coverImage: null, images: [] })
@@ -43,7 +44,7 @@ const AddRecipe = () => {
   const isValid = () => recipeData?.title && recipeData?.shortDescription && recipeData?.description && recipeData?.categories.length > 0
 
   return (
-    <Styled.FormWrapper className={'content'}>
+    <Styled.FormWrapper>
       <Styled.FormInput
         placeholder={$t('recipes.title')}
         name={'title'}
@@ -73,11 +74,9 @@ const AddRecipe = () => {
           return <option key={category._id} value={category._id}>{category.title}</option>
         })}
       </Styled.FormSelect>
-      <input
-        type="file"
-        name="coverImage"
-        accept=".png, .jpg"
-        onChange={e => handleAddImage(e, true)}
+      <ImageSelector
+        handleAddImage={e => handleAddImage(e, true)}
+        image={recipeData.coverImage}
       />
       <input
         type="file"

@@ -4,6 +4,7 @@ export const FormWrapper = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 export const FormInput = styled.input`
   padding: 15px;
@@ -13,6 +14,7 @@ export const FormInput = styled.input`
   border-radius: 20px;
   font-size: 16px;
   color: ${({ theme }) => theme.gray_200};
+  width: 700px;
 `
 
 export const FormTextarea = styled.textarea`
@@ -26,6 +28,8 @@ export const FormTextarea = styled.textarea`
   resize: vertical;
   color: ${({ theme }) => theme.gray_200};
   font-family: 'Arial';
+  width: 700px;
+  min-height: 150px;
 `
 
 export const FormSelect = styled.select`
@@ -41,6 +45,7 @@ export const FormSelect = styled.select`
   -moz-appearance: none;
   appearance: none;
   border: none;
+  width: 730px;
 `
 
 export const FormSubmit = styled.input`
