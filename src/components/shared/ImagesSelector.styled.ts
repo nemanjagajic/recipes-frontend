@@ -15,11 +15,12 @@ export const Wrapper = styled.div`
 export const ImagesContainer = styled.div`
   height: 400px;
   width: 400px;
-  background-color: ${({ theme }) => theme.gray_400};
+  background-color: ${({ theme }) => theme.white};
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: ${({ theme }) => `1px dashed ${theme.gray_500}`};
 `
 
 export const AddImageBtn = styled.div`
@@ -43,5 +44,4 @@ export const Image = styled.img`
   max-width: 360px;
   max-height: 360px;
   align-self: center;
-  border-radius: 30px;
 `

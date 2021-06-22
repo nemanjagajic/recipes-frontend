@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import * as Styled from './ImagesSelector.styled'
-import imagePlaceholder from '../../assets/imagePlaceholder.png'
+import { Image } from 'react-ionicons'
+import theme from '../../theme/theme'
 
 type PropTypes = {
   handleAddImage: (e: React.FormEvent<HTMLInputElement>, isCoverImage?: boolean) => void
@@ -16,7 +17,7 @@ const ImageSelector = ({ handleAddImage, image }: PropTypes) => {
         {image ? (
           <Styled.Image src={URL.createObjectURL(image)} />
         ) : (
-          <Styled.Image width={100} src={imagePlaceholder} />
+          <Image width={'60px'} height={'60px'} color={theme.gray_400} />
         )}
       </Styled.ImagesContainer>
       <Styled.AddImageBtn

@@ -46,6 +46,7 @@ export const FormSelect = styled.select`
   appearance: none;
   border: none;
   width: 730px;
+  cursor: pointer;
 `
 
 export const FormSubmit = styled.input`
