@@ -47,9 +47,28 @@ export const AddImageBtnText = styled.div`
   font-size: 16px;
 `
 
+export const ImageWrapper = styled.div`
+  position: relative;
+`
+
 export const Image = styled.img`
   max-width: 360px;
   max-height: 360px;
   align-self: center;
   margin: 0 10px;
+  border-radius: 20px;
+`
+
+export const CloseBtn = styled.div`
+   width: 25px;
+   height: 20px; 
+   background-color: ${({ theme }) => theme.white};
+   position: absolute;
+   right: 0;
+   top: 0;
+   border-radius: 50%;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 `

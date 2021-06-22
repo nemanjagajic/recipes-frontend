@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 50px;
 `
 
 export const FormWrapper = styled.div`

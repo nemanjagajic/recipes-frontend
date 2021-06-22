@@ -30,13 +30,23 @@ const AddRecipe = () => {
     // @ts-ignore
     const images = e.target.files;
     setRecipeData(prevRecipeData => ({ ...recipeData, images: [...prevRecipeData.images, ...images] }))
-  };
+  }
+
+  const handleRemoveImage = (index: number) => {
+    if (recipeData.images.length < index + 1) return
+    const updatedImages = [...recipeData.images].filter((el, i) => index !== i)
+    setRecipeData({ ...recipeData, images: updatedImages })
+  }
 
   const handleAddCoverImage = (e: React.FormEvent<HTMLInputElement>) => {
     // @ts-ignore
     const image = e.target.files[0];
     setRecipeData({ ...recipeData, coverImage: image })
-  };
+  }
+
+  const handleRemoveCoverImage = () => {
+    setRecipeData({ ...recipeData, coverImage: null })
+  }
 
   const handleAddRecipe = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault()
@@ -79,10 +89,12 @@ const AddRecipe = () => {
       <ImageSelector
         handleAddImage={e => handleAddCoverImage(e)}
         images={recipeData.coverImage ? [recipeData.coverImage] : []}
+        handleRemoveImage={handleRemoveCoverImage}
       />
       <ImageSelector
         multiple={true}
         handleAddImage={e => handleAddImages(e)}
+        handleRemoveImage={handleRemoveImage}
         images={recipeData.images}
       />
       <Styled.FormSubmit

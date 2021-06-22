@@ -10,6 +10,7 @@ const theme = {
   gray_400: '#e6e6e6',
   gray_500: '#b3b3b3',
   white: '#fff',
+  black: '#333'
 }
 
 export default theme

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import * as Styled from './ImagesSelector.styled'
-import { Image } from 'react-ionicons'
+import { Image, CloseCircle } from 'react-ionicons'
 import theme from '../../theme/theme'
 import $t from '../../i18n'
 
@@ -8,17 +8,25 @@ type PropTypes = {
   multiple?: boolean;
   handleAddImage: (e: React.FormEvent<HTMLInputElement>, isCoverImage?: boolean) => void;
   images: (File | null)[];
+  handleRemoveImage: (index: number) => void
 }
 
-const ImageSelector = ({ handleAddImage, images, multiple = false }: PropTypes) => {
-  const inputEl = useRef(null);
+const ImageSelector = ({ handleAddImage, images, multiple = false, handleRemoveImage }: PropTypes) => {
+  const inputElement = useRef(null);
 
   return (
     <Styled.Wrapper multiple={multiple}>
       <Styled.ImagesContainer multiple={multiple} showPlaceholder={images.length === 0}>
         {images.length > 0 ? (
           images.map((image, index) => (
-            image && <Styled.Image key={index} src={URL.createObjectURL(image)}/>
+            image && (
+              <Styled.ImageWrapper key={index} style={{ position: 'relative' }}>
+                <Styled.CloseBtn onClick={() => handleRemoveImage(index)}>
+                  <CloseCircle height={'35px'} width={'35px'} color={theme.black} />
+                </Styled.CloseBtn>
+                <Styled.Image src={URL.createObjectURL(image)}/>
+              </Styled.ImageWrapper>
+            )
           ))
         ) : (
           <Image width={'60px'} height={'60px'} color={theme.gray_400} />
@@ -27,7 +35,7 @@ const ImageSelector = ({ handleAddImage, images, multiple = false }: PropTypes) 
       <Styled.AddImageBtn
         onClick={() => {
           // @ts-ignore
-          inputEl?.current?.click()
+          inputElement?.current?.click()
         }}
       >
         <Styled.AddImageBtnText>{$t(`dashboard.${multiple ? 'addImages' : 'addImage'}`)}</Styled.AddImageBtnText>
@@ -38,7 +46,7 @@ const ImageSelector = ({ handleAddImage, images, multiple = false }: PropTypes) 
           accept=".png, .jpg"
           multiple
           onChange={e => handleAddImage(e, true)}
-          ref={inputEl}
+          ref={inputElement}
         />
       </Styled.AddImageBtn>
     </Styled.Wrapper>
