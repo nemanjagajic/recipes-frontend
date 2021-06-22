@@ -26,14 +26,16 @@ const AddRecipe = () => {
     setRecipeData({ ...recipeData, [name]: name === 'categories' ? [value] : value })
   }
 
-  const handleAddImage = (e: React.FormEvent<HTMLInputElement>, isCoverImage = false) => {
+  const handleAddImages = (e: React.FormEvent<HTMLInputElement>) => {
+    // @ts-ignore
+    const images = e.target.files;
+    setRecipeData(prevRecipeData => ({ ...recipeData, images: [...prevRecipeData.images, ...images] }))
+  };
+
+  const handleAddCoverImage = (e: React.FormEvent<HTMLInputElement>) => {
     // @ts-ignore
     const image = e.target.files[0];
-    if (isCoverImage) {
-      setRecipeData({ ...recipeData, coverImage: image })
-      return
-    }
-    setRecipeData(prevRecipeData => ({ ...recipeData, images: [...prevRecipeData.images, image] }))
+    setRecipeData({ ...recipeData, coverImage: image })
   };
 
   const handleAddRecipe = (e: React.FormEvent<HTMLInputElement>) => {
@@ -75,15 +77,13 @@ const AddRecipe = () => {
         })}
       </Styled.FormSelect>
       <ImageSelector
-        handleAddImage={e => handleAddImage(e, true)}
-        image={recipeData.coverImage}
+        handleAddImage={e => handleAddCoverImage(e)}
+        images={recipeData.coverImage ? [recipeData.coverImage] : []}
       />
-      <input
-        type="file"
-        name="images"
-        accept=".png, .jpg"
-        multiple
-        onChange={handleAddImage}
+      <ImageSelector
+        multiple={true}
+        handleAddImage={e => handleAddImages(e)}
+        images={recipeData.images}
       />
       <Styled.FormSubmit
         type={'submit'}

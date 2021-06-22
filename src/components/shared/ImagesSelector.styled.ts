@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{
+  multiple: boolean
+}>`
   height: 460px;
-  width: 400px;
+  width: ${({ multiple }) => multiple ? '100%' : '400px'};
   border-radius: 30px;
   margin-top: 20px;
   display: flex;
@@ -12,15 +14,20 @@ export const Wrapper = styled.div`
   margin-bottom: 30px;
 `
 
-export const ImagesContainer = styled.div`
+export const ImagesContainer = styled.div<{
+  multiple: boolean,
+  showPlaceholder: boolean
+}>`
   height: 400px;
-  width: 400px;
+  width: ${({ multiple }) => multiple ? '100%' : '400px'};
   background-color: ${({ theme }) => theme.white};
   border-radius: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ multiple, showPlaceholder }) => (multiple && !showPlaceholder) ? 'normal' : 'center'};
   border: ${({ theme }) => `1px dashed ${theme.gray_500}`};
+  flex-direction: row;
+  overflow-y:scroll;
 `
 
 export const AddImageBtn = styled.div`
@@ -44,4 +51,5 @@ export const Image = styled.img`
   max-width: 360px;
   max-height: 360px;
   align-self: center;
+  margin: 0 10px;
 `

@@ -10,7 +10,9 @@
     }
   },
   "dashboard": {
-    "mainPage": "Main page"
+    "mainPage": "Main page",
+    "addImage": "Add image",
+    "addImages": "Add images"
   },
   "home": {
     "title": "Home"

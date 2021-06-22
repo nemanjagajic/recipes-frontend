@@ -2,20 +2,24 @@ import React, { useRef } from 'react'
 import * as Styled from './ImagesSelector.styled'
 import { Image } from 'react-ionicons'
 import theme from '../../theme/theme'
+import $t from '../../i18n'
 
 type PropTypes = {
-  handleAddImage: (e: React.FormEvent<HTMLInputElement>, isCoverImage?: boolean) => void
-  image: File | null
+  multiple?: boolean;
+  handleAddImage: (e: React.FormEvent<HTMLInputElement>, isCoverImage?: boolean) => void;
+  images: (File | null)[];
 }
 
-const ImageSelector = ({ handleAddImage, image }: PropTypes) => {
+const ImageSelector = ({ handleAddImage, images, multiple = false }: PropTypes) => {
   const inputEl = useRef(null);
 
   return (
-    <Styled.Wrapper>
-      <Styled.ImagesContainer>
-        {image ? (
-          <Styled.Image src={URL.createObjectURL(image)} />
+    <Styled.Wrapper multiple={multiple}>
+      <Styled.ImagesContainer multiple={multiple} showPlaceholder={images.length === 0}>
+        {images.length > 0 ? (
+          images.map((image, index) => (
+            image && <Styled.Image key={index} src={URL.createObjectURL(image)}/>
+          ))
         ) : (
           <Image width={'60px'} height={'60px'} color={theme.gray_400} />
         )}
@@ -26,7 +30,7 @@ const ImageSelector = ({ handleAddImage, image }: PropTypes) => {
           inputEl?.current?.click()
         }}
       >
-        <Styled.AddImageBtnText>Add image</Styled.AddImageBtnText>
+        <Styled.AddImageBtnText>{$t(`dashboard.${multiple ? 'addImages' : 'addImage'}`)}</Styled.AddImageBtnText>
         <input
           style={{ display: 'none' }}
           type="file"
