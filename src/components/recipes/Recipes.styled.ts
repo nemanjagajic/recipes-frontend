@@ -11,6 +11,9 @@ export const RecipesWrapper = styled.div`
   width: 600px;
   margin-top: 40px;
   cursor: pointer;
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const RecipeItem = styled.div`
@@ -22,6 +25,7 @@ export const RecipeItem = styled.div`
   border-radius: 20px;
   height: 400px;
   border: ${({ theme }) => `1px solid ${theme.gray_400}`};
+  width: 100%;
 `
 
 export const Image = styled.img`
@@ -49,6 +53,7 @@ export const ImagePlaceholder = styled.div`
 
 export const NoImageText = styled.div`
   margin-top: 10px;
+  text-align: center;
 `
 
 export const TitleWrapper = styled.div`

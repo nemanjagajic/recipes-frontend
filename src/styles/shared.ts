@@ -19,4 +19,8 @@ export const Title = styled.div<{
 
 export const Text = styled.div`
   font-size: 18px;
+  
+  @media (max-width: 780px) {
+    max-width: 90%
+  }
 `

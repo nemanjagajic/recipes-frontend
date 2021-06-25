@@ -10,13 +10,17 @@ export const Wrapper = styled.div<{
   display: flex;
   flex-direction: row;
   border-radius: 40px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const Option = styled.div<{
   isSelected: boolean
 }>`
   height: 50px;
-  width: ${({ isSelected }) => isSelected ? '220px' : '180px'};
+  width: 200px;
   background-color: ${({ theme, isSelected }) => isSelected ? theme.main : theme.gray_400};
   color: ${({ theme }) => theme.white};
   border-radius: 40px;
@@ -30,4 +34,8 @@ export const Option = styled.div<{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `

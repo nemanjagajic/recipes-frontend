@@ -15,6 +15,10 @@ export const FormInput = styled.input`
   font-size: 16px;
   color: ${({ theme }) => theme.gray_200};
   width: 700px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const FormTextarea = styled.textarea`
@@ -30,6 +34,10 @@ export const FormTextarea = styled.textarea`
   font-family: 'Arial';
   width: 700px;
   min-height: 150px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const FormSelect = styled.select`
@@ -47,6 +55,10 @@ export const FormSelect = styled.select`
   border: none;
   width: 730px;
   cursor: pointer;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const FormSubmit = styled.input`

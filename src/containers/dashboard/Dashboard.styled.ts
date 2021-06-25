@@ -8,5 +8,9 @@ export const Wrapper = styled.div`
 `
 
 export const FormWrapper = styled.div`
-  width: 700px
+  width: 700px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `

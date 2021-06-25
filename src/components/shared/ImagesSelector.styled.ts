@@ -12,6 +12,10 @@ export const Wrapper = styled.div<{
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const ImagesContainer = styled.div<{
@@ -28,6 +32,10 @@ export const ImagesContainer = styled.div<{
   border: ${({ theme }) => `1px dashed ${theme.gray_500}`};
   flex-direction: row;
   overflow-y:scroll;
+  
+  @media (max-width: 780px) {
+    width: 100%
+  }
 `
 
 export const AddImageBtn = styled.div`
