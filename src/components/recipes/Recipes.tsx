@@ -30,10 +30,6 @@ const Recipes = ({ categoryId }: PropTypes) => {
 
   return (
     <Styled.Wrapper>
-      <Navbar
-        itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/')}]}
-        title={$t('home.title')}
-      />
       <Styled.RecipesWrapper>
         {!isFetching && recipes?.map((recipe) => (
           <Styled.RecipeItem key={recipe._id}>

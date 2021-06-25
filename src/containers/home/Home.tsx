@@ -10,10 +10,6 @@ const Home = () => {
 
   return (
     <Styled.Wrapper>
-      <Navbar
-        itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/')}]}
-        title={$t('home.title')}
-      />
       <Categories />
     </Styled.Wrapper>
   );
