@@ -23,7 +23,8 @@
     "description": "Description",
     "addRecipe": "Add recipe",
     "publishRecipe": "Publish recipe",
-    "selectOption": "-- select an option --"
+    "selectOption": "-- select an option --",
+    "noCoverImageAdded": "Cover image has not been added for this recipe"
   },
   "categories": {
     "title": "Title",
