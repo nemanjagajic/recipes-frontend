@@ -3,12 +3,15 @@ import {RecipeInput} from '../../ts/recipeTypes'
 
 const API_ENDPOINTS = {
   RECIPES: '/api/recipes',
+  CATEGORY_RECIPES: '/api/categories/recipes'
 }
 
 class RecipesService {
-  getAllRecipes = async () => {
+  getRecipesByCategory = async (categoryId: string) => {
     try {
-      const { data } = await request.get(API_ENDPOINTS.RECIPES);
+      const { data } = await request.get(API_ENDPOINTS.CATEGORY_RECIPES, { params: {
+          categoryId
+        }});
       return data;
     } catch (e) {
       throw e.response.data.message

@@ -1,16 +1,19 @@
 import React from 'react'
 import $t from '../../i18n'
 import * as Styled from './Home.styled'
-import { Title } from '../../styles/shared';
 import Categories from '../../components/categories/Categories'
-
-const TITLE_MARGIN_TOP = 20;
+import Navbar from '../../components/shared/Navbar'
+import { useHistory } from 'react-router'
 
 const Home = () => {
+  const history = useHistory()
 
   return (
     <Styled.Wrapper>
-      <Title marginTop={TITLE_MARGIN_TOP}>{$t('home.title')}</Title>
+      <Navbar
+        itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/')}]}
+        title={$t('home.title')}
+      />
       <Categories />
     </Styled.Wrapper>
   );

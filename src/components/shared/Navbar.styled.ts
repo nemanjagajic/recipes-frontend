@@ -17,6 +17,7 @@ export const RightItems = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 10px;
+  width: 40%;
 `
 
 export const LeftItems = styled.div`
@@ -25,6 +26,7 @@ export const LeftItems = styled.div`
   align-items: center;
   direction: rtl;
   margin-right: 10px;
+  width: 40%;
 `
 
 export const Item = styled.div`
@@ -49,4 +51,9 @@ export const Item = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+`
+
+export const Title = styled.div`
+  font-size: 22px;
+  color: ${({ theme }) => theme.white};
 `
