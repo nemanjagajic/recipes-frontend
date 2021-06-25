@@ -1,12 +1,16 @@
-import React from 'react'
-import $t from '../../i18n'
+import React, {useEffect} from 'react'
 import * as Styled from './Home.styled'
 import Categories from '../../components/categories/Categories'
-import Navbar from '../../components/shared/Navbar'
-import { useHistory } from 'react-router'
+import $t from '../../i18n'
 
-const Home = () => {
-  const history = useHistory()
+type PropTypes = {
+  setNavbarTitle?: Function
+}
+
+const Home = ({ setNavbarTitle }: PropTypes) => {
+  useEffect(() => {
+    if (setNavbarTitle) setNavbarTitle($t('home.title'))
+  }, [])
 
   return (
     <Styled.Wrapper>

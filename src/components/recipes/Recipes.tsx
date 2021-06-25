@@ -1,22 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useFetchRecipes } from '../../hooks/recipes/useFetchRecipes'
 import imagePlaceholder from '../../assets/recipePlaceholder.png'
 import * as Styled from './Recipes.styled'
 import { Title, Text } from '../../styles/shared'
 import { IMAGES_LOCATION } from '../../constants/constants'
-import $t from '../../i18n'
-import Navbar from '../shared/Navbar'
-import { useHistory } from 'react-router'
+import {useFetchCategories} from '../../hooks/categories/useFetchCategories'
 
 const TITLE_MARGIN_BOTTOM = 20
 
 type PropTypes = {
   categoryId: string;
+  setNavbarTitle?: Function
 }
 
-const Recipes = ({ categoryId }: PropTypes) => {
-  const history = useHistory()
-  const { data: recipes, isFetching } = useFetchRecipes(categoryId)
+const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
+  const { data: recipes, isFetching: isFetchingRecipes } = useFetchRecipes(categoryId)
+  const { data: categories } = useFetchCategories()
+
+  useEffect(() => {
+    if (setNavbarTitle) setNavbarTitle(getCategoryTitle())
+  }, [categories])
 
   const renderImages = (images: string[]) => {
     return images.map((image, index) => <Styled.Image key={index} src={`${IMAGES_LOCATION}${image}`}/>)
@@ -28,10 +31,15 @@ const Recipes = ({ categoryId }: PropTypes) => {
     )
   }
 
+  const getCategoryTitle = () => {
+    const category = categories?.find(c => c._id === categoryId)
+    return category?.title
+  }
+
   return (
     <Styled.Wrapper>
       <Styled.RecipesWrapper>
-        {!isFetching && recipes?.map((recipe) => (
+        {!isFetchingRecipes && recipes?.map((recipe) => (
           <Styled.RecipeItem key={recipe._id}>
             {recipe.coverImage ? renderCoverImage(recipe.coverImage) : <Styled.Image src={imagePlaceholder}/>}
             {renderImages(recipe.images)}
