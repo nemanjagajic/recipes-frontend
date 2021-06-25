@@ -59,3 +59,10 @@ export const NoImageText = styled.div`
 export const TitleWrapper = styled.div`
   margin-bottom: 20px;
 `
+
+export const NoRecipesText = styled.div`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  color: ${({ theme }) => theme.gray_500};
+`

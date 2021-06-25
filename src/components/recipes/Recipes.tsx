@@ -42,6 +42,7 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
   return (
     <Styled.Wrapper>
       <Styled.RecipesWrapper>
+        {!isFetchingRecipes && recipes?.length === 0 && <Styled.NoRecipesText>{$t('categories.noRecipesForCategory')}</Styled.NoRecipesText>}
         {!isFetchingRecipes && recipes?.map((recipe) => (
           <Styled.RecipeItem key={recipe._id}>
             {recipe.coverImage ? renderCoverImage(recipe.coverImage) : (

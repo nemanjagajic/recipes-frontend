@@ -30,6 +30,7 @@
     "title": "Title",
     "description": "Description",
     "addCategory": "Add category",
-    "publishCategory": "Publish category"
+    "publishCategory": "Publish category",
+    "noRecipesForCategory": "No recipes has been added for this category yet"
   }
 }
