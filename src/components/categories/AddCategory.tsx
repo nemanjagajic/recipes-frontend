@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import $t from '../../i18n';
-import * as Styled from './AddCategorie.styled'
+import * as Styled from './AddCategory.styled'
 import { CategoryInput } from '../../ts/categoryTypes'
 import { useAddCategory } from '../../hooks/categories/useAddCategory'
+import ImageSelector from '../shared/ImageSelector'
 
 const AddCategory = () => {
-  const [categoryData, setCategoryData] = useState<CategoryInput>({ description: '', title: '' })
+  const [categoryData, setCategoryData] = useState<CategoryInput>({ description: '', title: '', image: null })
 
   const clearInput = () => {
-    setCategoryData({ description: '', title: '' })
+    setCategoryData({ description: '', title: '', image: null })
   }
 
   const { mutate: addCategory, error } = useAddCategory(clearInput)
@@ -20,13 +21,23 @@ const AddCategory = () => {
 
   const isValid = () => categoryData?.title && categoryData?.description
 
+  const handleAddImage = (e: React.FormEvent<HTMLInputElement>) => {
+    // @ts-ignore
+    const image = e.target.files[0];
+    setCategoryData({ ...categoryData, image })
+  }
+
+  const handleRemoveImage = () => {
+    setCategoryData({ ...categoryData, image: null })
+  }
+
   const handleAddCategory = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault()
     addCategory(categoryData)
   }
 
   return (
-    <Styled.FormWrapper className={'content'}>
+    <Styled.FormWrapper>
       <Styled.FormInput
         placeholder={$t('categories.title')}
         name={'title'}
@@ -38,6 +49,11 @@ const AddCategory = () => {
         name={'description'}
         value={categoryData?.description}
         onChange={onChange}
+      />
+      <ImageSelector
+        handleAddImage={e => handleAddImage(e)}
+        images={categoryData.image ? [categoryData.image] : []}
+        handleRemoveImage={handleRemoveImage}
       />
       <Styled.FormSubmit
         type={'submit'}

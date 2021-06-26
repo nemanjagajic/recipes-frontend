@@ -8,9 +8,7 @@ export const Wrapper = styled.div`
   justify-content: space-around;
 `
 
-export const Item = styled.div<{
-  imageUrl: string
-}>`
+export const Item = styled.div`
   width: 400px;
   height: 200px;
   border-radius: 20px;
@@ -20,12 +18,19 @@ export const Item = styled.div<{
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-image:  ${({ imageUrl }) => `url(${imageUrl})`};
-  background-size: cover;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
   &:hover {
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
   }
+`
+
+export const ItemImage = styled.img`
+  position: absolute;
+  z-index: -1;
+  width: 400px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
 `
 
 export const Title = styled.div`

@@ -17,7 +17,12 @@ class RecipesService {
 
   addCategory = async (category: CategoryInput) => {
     try {
-      const { data } = await request.post(API_ENDPOINTS.CATEGORIES, category)
+      const categoryData = new FormData()
+      categoryData.append('title', category.title)
+      categoryData.append('description', category.description)
+      if (category.image) categoryData.append('image', category.image)
+
+      const { data } = await request.post(API_ENDPOINTS.CATEGORIES, categoryData)
       return data;
     } catch(e) {
       throw e.response.data.message

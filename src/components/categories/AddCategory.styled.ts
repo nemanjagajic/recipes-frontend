@@ -4,6 +4,7 @@ export const FormWrapper = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 export const FormInput = styled.input`
   padding: 15px;
@@ -13,6 +14,12 @@ export const FormInput = styled.input`
   border-radius: 20px;
   font-size: 16px;
   color: ${({ theme }) => theme.gray_200};
+  
+  width: 700px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 
 export const FormSubmit = styled.input`
