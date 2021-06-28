@@ -19,6 +19,7 @@ export const Item = styled.div`
   justify-content: center;
   transition: all 0.3s ease;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+  position: relative;
   &:hover {
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
   }
@@ -27,10 +28,10 @@ export const Item = styled.div`
 export const ItemImage = styled.img`
   position: absolute;
   z-index: -1;
-  width: 400px;
   height: 200px;
   border-radius: 20px;
   object-fit: cover;
+  width: 100%;
 `
 
 export const Title = styled.div`
