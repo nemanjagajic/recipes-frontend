@@ -5,7 +5,7 @@ const theme = {
   main_dark: '#e53935',
   accent: '#ffeb3b',
   gray_100: '#f5f5f5',
-  gray_200: '#555',
+  gray_200: '#737373',
   gray_300: '#f2f2f2',
   gray_400: '#e6e6e6',
   gray_500: '#b3b3b3',

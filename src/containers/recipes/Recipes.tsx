@@ -25,11 +25,6 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
     if (setNavbarTitle) setNavbarTitle(getCategoryTitle())
   }, [categories])
 
-  // TODO move this into recipe details page
-  // const renderImages = (images: string[]) => {
-  //   return images.map((image, index) => <Styled.Image key={index} src={`${IMAGES_LOCATION}${image}`}/>)
-  // }
-
   const renderCoverImage = (coverImage: string) => {
     return (
       <Styled.Image src={`${IMAGES_LOCATION}${coverImage}`}/>

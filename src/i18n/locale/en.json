@@ -1,4 +1,7 @@
 {
+  "common": {
+    "back": "Back"
+  },
   "auth": {
     "buttons": {
       "logIn": "Log in",
