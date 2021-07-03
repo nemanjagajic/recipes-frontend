@@ -3,7 +3,8 @@ import {RecipeInput} from '../../ts/recipeTypes'
 
 const API_ENDPOINTS = {
   RECIPES: '/api/recipes',
-  CATEGORY_RECIPES: '/api/categories/recipes'
+  CATEGORY_RECIPES: '/api/categories/recipes',
+  RECIPE_BY_ID: '/api/recipes/getById'
 }
 
 class RecipesService {
@@ -11,6 +12,17 @@ class RecipesService {
     try {
       const { data } = await request.get(API_ENDPOINTS.CATEGORY_RECIPES, { params: {
           categoryId
+        }});
+      return data;
+    } catch (e) {
+      throw e.response.data.message
+    }
+  }
+
+  getRecipeById = async (recipeId: string) => {
+    try {
+      const { data } = await request.get(API_ENDPOINTS.RECIPE_BY_ID, { params: {
+          recipeId
         }});
       return data;
     } catch (e) {

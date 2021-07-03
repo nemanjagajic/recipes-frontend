@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from 'react'
 import { useFetchRecipes } from '../../hooks/recipes/useFetchRecipes'
 import * as Styled from './Recipes.styled'
 import { Title, Text } from '../../styles/shared'
@@ -7,6 +7,7 @@ import {useFetchCategories} from '../../hooks/categories/useFetchCategories'
 import $t from '../../i18n'
 import { Image } from 'react-ionicons'
 import theme from '../../theme/theme'
+import { useHistory } from 'react-router'
 
 const TITLE_MARGIN_BOTTOM = 20
 
@@ -16,6 +17,7 @@ type PropTypes = {
 }
 
 const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
+  const history = useHistory()
   const { data: recipes, isFetching: isFetchingRecipes } = useFetchRecipes(categoryId)
   const { data: categories } = useFetchCategories()
 
@@ -43,8 +45,11 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
     <Styled.Wrapper>
       <Styled.RecipesWrapper>
         {!isFetchingRecipes && recipes?.length === 0 && <Styled.NoRecipesText>{$t('categories.noRecipesForCategory')}</Styled.NoRecipesText>}
-        {!isFetchingRecipes && recipes?.map((recipe) => (
-          <Styled.RecipeItem key={recipe._id}>
+        {!isFetchingRecipes && recipes?.map(recipe => (
+          <Styled.RecipeItem
+            key={recipe._id}
+            onClick={() => history.push(`/recipes/${recipe.categories[0]}/${recipe._id}`)}
+          >
             {recipe.coverImage ? renderCoverImage(recipe.coverImage) : (
               <Styled.ImagePlaceholder>
                 <Image width={'60px'} height={'60px'} color={theme.gray_500} />
