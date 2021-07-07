@@ -9,6 +9,7 @@ import $t from '../../i18n'
 import Carousel from 'react-elastic-carousel'
 import { IMAGES_LOCATION } from '../../constants/constants'
 import './Carousel.styles.css'
+import {Title} from '../../styles/shared'
 
 type PropTypes = {
   recipeId: string;
@@ -50,6 +51,8 @@ const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
           </Carousel>
         </Styled.CarouselWrapper>
       )}
+      <Title fontSize={24} color={theme.main} marginTop={20}>{$t('recipes.recipe')}</Title>
+      <Styled.Underline />
       <Styled.DescriptionWrapper>{recipe.description}</Styled.DescriptionWrapper>
     </Styled.Wrapper>
   );

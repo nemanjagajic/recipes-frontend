@@ -26,7 +26,8 @@
     "description": "Description",
     "addRecipe": "Add recipe",
     "publishRecipe": "Publish recipe",
-    "selectOption": "-- select an option --"
+    "selectOption": "-- select an option --",
+    "recipe": "Recipe"
   },
   "categories": {
     "title": "Title",

@@ -49,7 +49,7 @@ export const DescriptionWrapper = styled.div`
   width: 700px;
   min-height: 50px;
   border-radius: 20px;
-  margin: 20px 0 40px;
+  margin: 20px 0;
   padding: 15px;
   
   @media (max-width: 780px) {
@@ -74,4 +74,11 @@ export const CarouselWrapper = styled.div`
   @media (max-width: 780px) {
     width: 90%
   }
+`
+
+export const Underline = styled.div`
+  width: 60px;
+  height: 2px;
+  background-color: ${({ theme }) => theme.main};
+  margin-top: 10px;
 `
