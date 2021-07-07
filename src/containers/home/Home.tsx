@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import * as Styled from './Home.styled'
 import Categories from '../../components/categories/Categories'
 import $t from '../../i18n'
 
@@ -13,9 +12,7 @@ const Home = ({ setNavbarTitle }: PropTypes) => {
   }, [])
 
   return (
-    <Styled.Wrapper>
-      <Categories />
-    </Styled.Wrapper>
+    <Categories />
   );
 };
 

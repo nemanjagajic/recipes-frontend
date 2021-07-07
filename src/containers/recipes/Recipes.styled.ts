@@ -1,59 +1,59 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`
-
-export const RecipesWrapper = styled.div`
-  width: 600px;
-  margin-top: 40px;
-  cursor: pointer;
+export const RecipeTitle = styled.div`
+  font-size: 22px;
+  color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.main};
+  padding: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  min-width: 150px;
+  text-align: center;
+  
   @media (max-width: 780px) {
-    width: 90%
+    width: 100%
   }
 `
 
 export const RecipeItem = styled.div`
-  margin-bottom: 40px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${({ theme }) => theme.gray_100};
+  margin: 10px auto;
+  width: 90%;
+  height: 200px;
   border-radius: 20px;
-  height: 400px;
-  border: ${({ theme }) => `1px solid ${theme.gray_400}`};
-  width: 100%;
+  cursor: pointer;
+  align-items: flex-end;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+  overflow: hidden;
+  position: relative;
+  &:hover {
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
+  }
 `
 
 export const Image = styled.img`
-  width: 100%;
-  height: 60%;
-  margin-bottom: 20px;
+  position: absolute;
+  z-index: -1;
+  height: 200px;
+  border-radius: 20px;
   object-fit: cover;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  width: 100%;
 `
 
 export const ImagePlaceholder = styled.div`
+  position: absolute;
+  z-index: -1;
+  border-radius: 20px;
+  object-fit: cover;
   width: 100%;
   height: 60%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color: ${({ theme }) => theme.gray_400};
-  color: ${({ theme }) => theme.gray_500};
-`
-
-export const NoImageText = styled.div`
-  margin-top: 10px;
-  text-align: center;
+  padding-top: 10px;
 `
 
 export const TitleWrapper = styled.div`

@@ -2,14 +2,11 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 90%;
-  display: flex;
-  margin-top: 50px;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  margin: 0 auto;
 `
 
 export const Item = styled.div`
-  width: 400px;
+  width: 90%;
   height: 200px;
   border-radius: 20px;
   margin: 15px;
