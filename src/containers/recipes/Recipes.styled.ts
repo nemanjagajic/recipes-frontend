@@ -10,14 +10,8 @@ export const RecipeTitle = styled.div`
   color: ${({ theme }) => theme.white};
   background-color: ${({ theme }) => theme.main};
   padding: 10px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  min-width: 150px;
+  width: 100%;
   text-align: center;
-  
-  @media (max-width: 780px) {
-    width: 100%
-  }
 `
 
 export const RecipeItem = styled.div`
@@ -30,11 +24,11 @@ export const RecipeItem = styled.div`
   align-items: flex-end;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
   overflow: hidden;
   position: relative;
   &:hover {
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.0);
   }
 `
 
@@ -53,12 +47,13 @@ export const ImagePlaceholder = styled.div`
   border-radius: 20px;
   object-fit: cover;
   width: 100%;
-  height: 60%;
-  margin-bottom: 20px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.gray_400};
+  margin-bottom: 10px;
 `
 
 export const TitleWrapper = styled.div`
