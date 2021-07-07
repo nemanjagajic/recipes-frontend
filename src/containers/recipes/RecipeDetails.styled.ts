@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   position: relative;
+  margin-bottom: 40px;
 `
 
 export const BackBtn = styled.div`
@@ -45,8 +46,9 @@ export const DescriptionWrapper = styled.div`
   padding: 15px
 `
 export const CarouselImg = styled.img`
-  max-width: 780px;
+  max-width: 500px;
   max-height: 500px;
+  border: ${({ theme }) => `1px solid ${theme.gray_100}`};
 `
 
 export const CarouselWrapper = styled.div`

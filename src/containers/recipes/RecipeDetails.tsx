@@ -39,9 +39,14 @@ const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
           <Carousel
             itemsToShow={1}
             isRTL={false}
-            className={'.rec.rec-arrow .rec.rec-arrow:hover'}
           >
-            {recipe.images.map(image => <Styled.CarouselImg key={image} src={`${IMAGES_LOCATION}${image}`} />)}
+            {recipe.images.map((image, index) => (
+              <Styled.CarouselImg
+                key={index}
+                src={`${IMAGES_LOCATION}${image}`}
+              />
+              )
+            )}
           </Carousel>
         </Styled.CarouselWrapper>
       )}
