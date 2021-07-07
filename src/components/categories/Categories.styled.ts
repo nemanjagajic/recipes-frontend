@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
 export const Item = styled.div`
   width: 90%;
-  height: 200px;
+  height: 220px;
   border-radius: 20px;
   margin: 15px;
   cursor: pointer;
@@ -25,7 +25,7 @@ export const Item = styled.div`
 export const ItemImage = styled.img`
   position: absolute;
   z-index: -1;
-  height: 200px;
+  height: 220px;
   border-radius: 20px;
   object-fit: cover;
   width: 100%;

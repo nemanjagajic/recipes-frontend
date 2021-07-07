@@ -56,4 +56,9 @@ export const Item = styled.div`
 export const Title = styled.div`
   font-size: 22px;
   color: ${({ theme }) => theme.white};
+  text-align: center;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `

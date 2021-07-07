@@ -4,7 +4,7 @@ import * as Styled from './Recipes.styled'
 import { IMAGES_LOCATION } from '../../constants/constants'
 import {useFetchCategories} from '../../hooks/categories/useFetchCategories'
 import $t from '../../i18n'
-import { Image } from 'react-ionicons'
+import {ArrowBack, Image} from 'react-ionicons'
 import theme from '../../theme/theme'
 import { useHistory } from 'react-router'
 
@@ -37,26 +37,28 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
   }
 
   return (
-    <Grid>
-      {!isFetchingRecipes && recipes?.length === 0 && <Styled.NoRecipesText>{$t('categories.noRecipesForCategory')}</Styled.NoRecipesText>}
-      {!isFetchingRecipes && recipes?.map(recipe => (
-        <Grid.Unit
-          key={recipe._id}
-          size={{tablet: 1 / 2, desktop: 1 / 3}}
-        >
-          <Styled.RecipeItem
-            onClick={() => history.push(`/recipes/${recipe.categories[0]}/${recipe._id}`)}
+    <Styled.Wrapper>
+      <Grid>
+        {!isFetchingRecipes && recipes?.length === 0 && <Styled.NoRecipesText>{$t('categories.noRecipesForCategory')}</Styled.NoRecipesText>}
+        {!isFetchingRecipes && recipes?.map(recipe => (
+          <Grid.Unit
+            key={recipe._id}
+            size={{tablet: 1 / 2, desktop: 1 / 3}}
           >
-            {recipe.coverImage ? renderCoverImage(recipe.coverImage) : (
-              <Styled.ImagePlaceholder>
-                <Image width={'60px'} height={'60px'} color={theme.gray_500} />
-              </Styled.ImagePlaceholder>
-            )}
-            <Styled.RecipeTitle>{recipe.title}</Styled.RecipeTitle>
-          </Styled.RecipeItem>
-        </Grid.Unit>
-      ))}
-    </Grid>
+            <Styled.RecipeItem
+              onClick={() => history.push(`/recipes/${recipe.categories[0]}/${recipe._id}`)}
+            >
+              {recipe.coverImage ? renderCoverImage(recipe.coverImage) : (
+                <Styled.ImagePlaceholder>
+                  <Image width={'60px'} height={'60px'} color={theme.gray_500} />
+                </Styled.ImagePlaceholder>
+              )}
+              <Styled.RecipeTitle>{recipe.title}</Styled.RecipeTitle>
+            </Styled.RecipeItem>
+          </Grid.Unit>
+        ))}
+      </Grid>
+    </Styled.Wrapper>
   )
 }
 

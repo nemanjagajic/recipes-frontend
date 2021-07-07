@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const Wrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`
+
 export const RecipeTitle = styled.div`
   font-size: 22px;
   color: ${({ theme }) => theme.white};
@@ -19,7 +24,7 @@ export const RecipeItem = styled.div`
   display: flex;
   margin: 10px auto;
   width: 90%;
-  height: 200px;
+  height: 220px;
   border-radius: 20px;
   cursor: pointer;
   align-items: flex-end;
@@ -36,7 +41,7 @@ export const RecipeItem = styled.div`
 export const Image = styled.img`
   position: absolute;
   z-index: -1;
-  height: 200px;
+  height: 220px;
   border-radius: 20px;
   object-fit: cover;
   width: 100%;
@@ -65,4 +70,5 @@ export const NoRecipesText = styled.div`
   text-align: center;
   font-size: 20px;
   color: ${({ theme }) => theme.gray_500};
+  width: 100%;
 `

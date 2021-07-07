@@ -14,21 +14,21 @@ const Categories = () => {
 
   return (
     <Styled.Wrapper>
-    <Grid>
-      {categories?.map(category => (
-        <Grid.Unit
-          key={category._id}
-          size={{tablet: 1 / 2, desktop: 1 / 3}}
-        >
-          <Styled.Item
-            onClick={() => history.push(`/recipes/${category._id}`)}
+      <Grid>
+        {categories?.map(category => (
+          <Grid.Unit
+            key={category._id}
+            size={{tablet: 1 / 2, desktop: 1 / 3}}
           >
-            <Styled.ItemImage src={category.image ? `${IMAGES_LOCATION}${category.image}` : categoryPlaceholder} />
-            <Styled.Title>{category.title}</Styled.Title>
-          </Styled.Item>
-        </Grid.Unit>
-      ))}
-    </Grid>
+            <Styled.Item
+              onClick={() => history.push(`/recipes/${category._id}`)}
+            >
+              <Styled.ItemImage src={category.image ? `${IMAGES_LOCATION}${category.image}` : categoryPlaceholder} />
+              <Styled.Title>{category.title}</Styled.Title>
+            </Styled.Item>
+          </Grid.Unit>
+        ))}
+      </Grid>
     </Styled.Wrapper>
   );
 };

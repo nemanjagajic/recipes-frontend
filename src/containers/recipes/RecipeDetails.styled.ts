@@ -14,7 +14,7 @@ export const BackBtn = styled.div`
   left: 20px;
   top: 0;
   background-color: ${({ theme }) => theme.gray_300};
-  width: 90px;
+  width: 100px;
   height: 40px;
   border-radius: 20px;
   display: flex;
