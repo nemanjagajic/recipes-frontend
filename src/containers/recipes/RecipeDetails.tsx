@@ -7,7 +7,7 @@ import { ArrowBack } from 'react-ionicons'
 import theme from '../../theme/theme'
 import $t from '../../i18n'
 import Carousel from 'react-elastic-carousel'
-import {IMAGES_LOCATION} from '../../constants/constants'
+import { IMAGES_LOCATION } from '../../constants/constants'
 import './Carousel.styles.css'
 
 type PropTypes = {

@@ -38,7 +38,6 @@ export const Date = styled.div`
 
 export const Title = styled.div`
   font-size: 36px;
-  margin-top: 10px;
   
   @media (max-width: 780px) {
     display: block;
