@@ -29,12 +29,20 @@ export const Date = styled.div`
   position: absolute;
   right: 20px;
   top: 10px;
-  color: ${({ theme }) => theme.gray_500}
+  color: ${({ theme }) => theme.gray_500};
+  
+  @media (max-width: 780px) {
+    display: none;
+  }
 `
 
 export const Title = styled.div`
   font-size: 36px;
   margin-top: 10px;
+  
+  @media (max-width: 780px) {
+    display: block;
+  }
 `
 
 export const DescriptionWrapper = styled.div`
@@ -43,15 +51,28 @@ export const DescriptionWrapper = styled.div`
   min-height: 50px;
   border-radius: 20px;
   margin: 20px 0 40px;
-  padding: 15px
+  padding: 15px;
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
 export const CarouselImg = styled.img`
   max-width: 500px;
   max-height: 500px;
   border: ${({ theme }) => `1px solid ${theme.gray_100}`};
+  
+  @media (max-width: 780px) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 `
 
 export const CarouselWrapper = styled.div`
   width: 700px;
   margin: 20px 0;
+  @media (max-width: 780px) {
+    width: 90%
+  }
 `
