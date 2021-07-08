@@ -47,7 +47,16 @@ class RecipesService {
       const { data } = await request.post(API_ENDPOINTS.RECIPES, recipeData)
       return data;
     } catch(e) {
-      throw e.response.data.message
+      throw e.response.data?.message
+    }
+  }
+
+  deleteRecipe = async (recipeId: string) => {
+    try {
+      const { data } = await request.delete(API_ENDPOINTS.RECIPES, { data: { recipeId } })
+      return data
+    } catch(e) {
+      throw e.response.data?.message
     }
   }
 }

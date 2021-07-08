@@ -27,7 +27,8 @@
     "addRecipe": "Add recipe",
     "publishRecipe": "Publish recipe",
     "selectOption": "-- select an option --",
-    "recipe": "Recipe"
+    "recipe": "Recipe",
+    "deleteRecipeAlert": "Are you sure you want to delete this recipe?"
   },
   "categories": {
     "title": "Title",

@@ -1,13 +1,13 @@
 import {useMutation, useQueryClient} from 'react-query';
 import recipeService from '../../services/api/recipesService'
 
-export const useAddRecipe = (clearInputText?: Function) => {
+export const useDeleteRecipe = (navigateBack?: Function) => {
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading, error } = useMutation(recipeService.addRecipe, {
+  const { mutate, isLoading, error } = useMutation(recipeService.deleteRecipe, {
     onSuccess: () => {
       queryClient.invalidateQueries('recipes');
-      clearInputText && clearInputText();
+      if (navigateBack) navigateBack()
     }
   });
   return { mutate, isLoading, error };

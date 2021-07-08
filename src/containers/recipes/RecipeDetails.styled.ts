@@ -49,7 +49,7 @@ export const DescriptionWrapper = styled.div`
   width: 700px;
   min-height: 50px;
   border-radius: 20px;
-  margin: 20px 0;
+  margin-top: 20px;
   padding: 15px;
   
   @media (max-width: 780px) {
@@ -81,4 +81,18 @@ export const Underline = styled.div`
   height: 2px;
   background-color: ${({ theme }) => theme.main};
   margin-top: 10px;
+`
+
+export const DeleteBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  border: ${({ theme }) => `1px solid ${theme.main}`};
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.main};
+  cursor: pointer;
+  margin: 40px 0 10px 0;
 `
