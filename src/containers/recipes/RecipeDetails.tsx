@@ -20,6 +20,7 @@ type PropTypes = {
 const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
   const history = useHistory()
   const navigateBack = () => history.push(`/recipes/${recipe?.categories[0]}`)
+  const isSignedIn = !!localStorage.getItem('token')
 
   const { data: recipe, isFetching } = useFetchRecipeById(recipeId)
   const { mutate: deleteRecipe, error } = useDeleteRecipe(navigateBack)
@@ -65,7 +66,7 @@ const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
       <Title fontSize={24} color={theme.main} marginTop={20}>{$t('recipes.recipe')}</Title>
       <Styled.Underline />
       <Styled.DescriptionWrapper>{recipe.description}</Styled.DescriptionWrapper>
-      <Styled.DeleteBtn onClick={handleDeleteRecipe}>Delete</Styled.DeleteBtn>
+      {isSignedIn && <Styled.DeleteBtn onClick={handleDeleteRecipe}>Delete</Styled.DeleteBtn>}
       {typeof error === 'string' && error}
     </Styled.Wrapper>
   );
