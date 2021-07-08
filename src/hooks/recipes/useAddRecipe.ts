@@ -1,4 +1,4 @@
-import {useMutation, useQueryClient} from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import recipeService from '../../services/api/recipesService'
 
 export const useAddRecipe = (clearInputText?: Function) => {

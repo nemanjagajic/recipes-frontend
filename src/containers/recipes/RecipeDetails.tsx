@@ -9,8 +9,8 @@ import $t from '../../i18n'
 import Carousel from 'react-elastic-carousel'
 import { IMAGES_LOCATION } from '../../constants/constants'
 import './Carousel.styles.css'
-import {Title} from '../../styles/shared'
-import {useDeleteRecipe} from '../../hooks/recipes/useDeleteRecipe'
+import { Title } from '../../styles/shared'
+import { useDeleteRecipe } from '../../hooks/recipes/useDeleteRecipe'
 
 type PropTypes = {
   recipeId: string;
