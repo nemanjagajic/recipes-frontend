@@ -26,8 +26,8 @@ const Dashboard = () => {
   return (
     <Styled.Wrapper>
       <Navbar
-        itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/')}]}
-        itemsFromRight={[{ title: $t('auth.buttons.logOut'), onClick: logOut }]}
+        itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/'), showIcon: true}]}
+        itemsFromRight={[{ title: $t('auth.buttons.logOut'), onClick: logOut, showIcon: true }]}
       />
       <Switcher
         switcherOptions={[

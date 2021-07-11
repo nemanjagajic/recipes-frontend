@@ -12,7 +12,7 @@ export const Wrapper = styled.div<{
   align-items: center;
 `
 
-export const RightItems = styled.div`
+export const LeftItems = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,7 +20,7 @@ export const RightItems = styled.div`
   width: 40%;
 `
 
-export const LeftItems = styled.div`
+export const RightItems = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -16,7 +16,8 @@
   "dashboard": {
     "mainPage": "Main page",
     "addImage": "Add image",
-    "addImages": "Add images"
+    "addImages": "Add images",
+    "title": "Dashboard"
   },
   "home": {
     "title": "Dragana's kitchen"

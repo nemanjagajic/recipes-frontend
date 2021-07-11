@@ -14,14 +14,20 @@ import RecipeDetails from './containers/recipes/RecipeDetails'
 function App() {
   const history = useHistory()
   const location = useLocation();
+  const isSignedIn = !!localStorage.getItem('token')
   const [navbarTitle, setNavbarTitle] = useState<string>($t('home.title'))
 
   return (
     <GlobalWrapper>
       {location?.pathname !== '/dashboard' && (
         <Navbar
-          itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/')}]}
+          itemsFromLeft={[{ title: $t('dashboard.mainPage'), onClick: () => history.push('/'), showIcon: true}]}
           title={navbarTitle}
+          itemsFromRight={
+            isSignedIn
+              ? [{ title: $t('dashboard.title'), onClick: () => history.push('/dashboard'), showIcon: false }]
+              : []
+          }
         />
       )}
       <Route path='/' exact render={() => <Home setNavbarTitle={setNavbarTitle} />} />
