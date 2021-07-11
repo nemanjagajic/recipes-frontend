@@ -1,7 +1,6 @@
 {
   "common": {
-    "back": "Back",
-    "delete": "Delete"
+    "back": "Back"
   },
   "auth": {
     "buttons": {
@@ -30,7 +29,8 @@
     "publishRecipe": "Publish recipe",
     "selectOption": "-- select an option --",
     "recipe": "Recipe",
-    "deleteRecipeAlert": "Are you sure you want to delete this recipe?"
+    "deleteRecipeAlert": "Are you sure you want to delete this recipe?",
+    "deleteRecipe": "Delete recipe"
   },
   "categories": {
     "title": "Title",
@@ -38,6 +38,7 @@
     "addCategory": "Add category",
     "publishCategory": "Publish category",
     "noRecipesForCategory": "No recipes has been added for this category yet",
-    "deleteCategoryAlert": "Are you sure you want to delete this category?"
+    "deleteCategoryAlert": "Are you sure you want to delete this category?",
+    "deleteCategory": "Delete category"
   }
 }

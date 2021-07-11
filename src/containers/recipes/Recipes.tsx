@@ -68,7 +68,7 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
           </Grid.Unit>
         ))}
       </Grid>
-      {isSignedIn && <Styled.DeleteBtn onClick={handleDeleteRecipe}>{$t('common.delete')}</Styled.DeleteBtn>}
+      {isSignedIn && <Styled.DeleteBtn onClick={handleDeleteRecipe}>{$t('categories.deleteCategory')}</Styled.DeleteBtn>}
     </Styled.Wrapper>
   )
 }
