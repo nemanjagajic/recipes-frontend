@@ -10,6 +10,7 @@ import { useHistory } from 'react-router'
 
 // @ts-ignore
 import Grid from 'styled-components-grid';
+import {useDeleteCategory} from '../../hooks/categories/useDeleteCategory'
 
 type PropTypes = {
   categoryId: string;
@@ -18,8 +19,10 @@ type PropTypes = {
 
 const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
   const history = useHistory()
+  const isSignedIn = !!localStorage.getItem('token')
   const { data: recipes, isFetching: isFetchingRecipes } = useFetchRecipes(categoryId)
   const { data: categories } = useFetchCategories()
+  const { mutate: deleteCategory } = useDeleteCategory(() => history.push('/'))
 
   useEffect(() => {
     if (setNavbarTitle) setNavbarTitle(getCategoryTitle())
@@ -34,6 +37,13 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
   const getCategoryTitle = () => {
     const category = categories?.find(c => c._id === categoryId)
     return category?.title
+  }
+
+  const handleDeleteRecipe = () => {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm($t('categories.deleteCategoryAlert')) && categoryId) {
+      deleteCategory(categoryId)
+    }
   }
 
   return (
@@ -58,6 +68,7 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
           </Grid.Unit>
         ))}
       </Grid>
+      {isSignedIn && <Styled.DeleteBtn onClick={handleDeleteRecipe}>{$t('common.delete')}</Styled.DeleteBtn>}
     </Styled.Wrapper>
   )
 }

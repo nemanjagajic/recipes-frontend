@@ -67,3 +67,17 @@ export const NoRecipesText = styled.div`
   color: ${({ theme }) => theme.gray_500};
   width: 100%;
 `
+
+export const DeleteBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  border: ${({ theme }) => `1px solid ${theme.main}`};
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.main};
+  cursor: pointer;
+  margin: 40px auto;
+`

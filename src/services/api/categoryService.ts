@@ -28,5 +28,14 @@ class RecipesService {
       throw e.response.data.message
     }
   }
+
+  deleteCategory = async (categoryId: string) => {
+    try {
+      const {data} = await request.delete(API_ENDPOINTS.CATEGORIES, {data: { categoryId }})
+      return data
+    } catch (e) {
+      throw e.response.data?.message
+    }
+  }
 }
 export default new RecipesService()
