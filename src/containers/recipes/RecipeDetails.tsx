@@ -65,7 +65,6 @@ const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
       )}
       <Title fontSize={24} color={theme.main} marginTop={20}>{$t('recipes.recipe')}</Title>
       <Styled.Underline />
-      {console.log(recipe.description)}
       <Styled.DescriptionWrapper dangerouslySetInnerHTML={{__html: recipe.description}} />
       {isSignedIn && <Styled.DeleteBtn onClick={handleDeleteRecipe}>{$t('recipes.deleteRecipe')}</Styled.DeleteBtn>}
       {typeof error === 'string' && error}

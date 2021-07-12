@@ -5,6 +5,7 @@ import * as Styled from './AddRecipe.styled'
 import { useAddRecipe } from '../../hooks/recipes/useAddRecipe'
 import { useFetchCategories } from '../../hooks/categories/useFetchCategories'
 import ImageSelector from '../shared/ImageSelector'
+import '../../components/recipes/TextEditor.styles.css'
 
 const TEXT_EDITOR_EMPTY_VALUE_AFTER_CHANGES = '<p><br></p>'
 

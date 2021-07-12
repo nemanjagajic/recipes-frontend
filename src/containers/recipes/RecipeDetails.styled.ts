@@ -51,7 +51,7 @@ export const ShortDescriptionWrapper = styled.div`
   border-radius: 20px;
   margin-top: 20px;
   padding: 30px;
-  font-size: 16px;
+  font-size: 18px;
   
   @media (max-width: 780px) {
     width: 70%
