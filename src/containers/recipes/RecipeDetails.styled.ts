@@ -50,7 +50,7 @@ export const DescriptionWrapper = styled.div`
   min-height: 50px;
   border-radius: 20px;
   margin-top: 20px;
-  padding: 15px;
+  padding: 30px;
   
   @media (max-width: 780px) {
     width: 90%

@@ -6,6 +6,8 @@ import { useAddRecipe } from '../../hooks/recipes/useAddRecipe'
 import { useFetchCategories } from '../../hooks/categories/useFetchCategories'
 import ImageSelector from '../shared/ImageSelector'
 
+const TEXT_EDITOR_EMPTY_VALUE_AFTER_CHANGES = '<p><br></p>'
+
 const AddRecipe = () => {
   const [recipeData, setRecipeData] = useState<RecipeInput>({ description: '', shortDescription: '', title: '', categories: [], coverImage: null, images: [] })
 
@@ -24,6 +26,11 @@ const AddRecipe = () => {
   const onChange = (e: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> | any) => {
     const { name, value } = e.currentTarget
     setRecipeData({ ...recipeData, [name]: name === 'categories' ? [value] : value })
+  }
+
+  const onChangeDescription = (description: string) => {
+    if (description === TEXT_EDITOR_EMPTY_VALUE_AFTER_CHANGES) return;
+    setRecipeData({ ...recipeData, description })
   }
 
   const handleAddImages = (e: React.FormEvent<HTMLInputElement>) => {
@@ -69,11 +76,10 @@ const AddRecipe = () => {
         value={recipeData?.shortDescription}
         onChange={onChange}
       />
-      <Styled.FormTextarea
-        placeholder={$t('recipes.description')}
-        name={'description'}
+      <Styled.TextEditor
+        theme='snow'
         value={recipeData?.description}
-        onChange={onChange}
+        onChange={onChangeDescription}
       />
       <Styled.FormSelect
         id={'category'}
