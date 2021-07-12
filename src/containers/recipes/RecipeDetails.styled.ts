@@ -44,18 +44,27 @@ export const Title = styled.div`
   }
 `
 
-export const DescriptionWrapper = styled.div`
+export const ShortDescriptionWrapper = styled.div`
   background-color: ${({ theme }) => theme.gray_100};
   width: 700px;
   min-height: 50px;
   border-radius: 20px;
   margin-top: 20px;
   padding: 30px;
+  font-size: 16px;
   
   @media (max-width: 780px) {
-    width: 90%
+    width: 70%
   }
 `
+
+export const DescriptionWrapper = styled(ShortDescriptionWrapper)`
+  border: ${({ theme }) => `1px solid ${theme.gray_400}`};
+  background-color: ${({ theme }) => theme.white};
+  ul { margin: 15px; padding-left: 5px; }
+  li { margin: 5px 15px }
+`
+
 export const CarouselImg = styled.img`
   max-width: 500px;
   max-height: 500px;

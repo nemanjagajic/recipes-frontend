@@ -46,7 +46,7 @@ const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
       </Styled.BackBtn>
       <Styled.Date>{moment(recipe.createdAt).format('MMMM Do YYYY, h:mm a')}</Styled.Date>
       <Styled.Title>{recipe.title}</Styled.Title>
-      <Styled.DescriptionWrapper>{recipe.shortDescription}</Styled.DescriptionWrapper>
+      <Styled.ShortDescriptionWrapper>{recipe.shortDescription}</Styled.ShortDescriptionWrapper>
       {recipe.images.length > 0 && (
         <Styled.CarouselWrapper>
           <Carousel
@@ -65,6 +65,7 @@ const RecipeDetails = ({ recipeId, setNavbarTitle }: PropTypes) => {
       )}
       <Title fontSize={24} color={theme.main} marginTop={20}>{$t('recipes.recipe')}</Title>
       <Styled.Underline />
+      {console.log(recipe.description)}
       <Styled.DescriptionWrapper dangerouslySetInnerHTML={{__html: recipe.description}} />
       {isSignedIn && <Styled.DeleteBtn onClick={handleDeleteRecipe}>{$t('recipes.deleteRecipe')}</Styled.DeleteBtn>}
       {typeof error === 'string' && error}
