@@ -54,7 +54,10 @@ export const Item = styled.div`
 `
 
 export const Title = styled.div`
-  font-size: 22px;
+// Baloo
+// "Snell Roundhand"
+  font-family: "Brush Script MT";
+  font-size: 30px;
   color: ${({ theme }) => theme.white};
   text-align: center;
   
