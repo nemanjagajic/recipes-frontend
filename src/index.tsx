@@ -6,6 +6,9 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import App from './App';
 import {ThemeProvider} from 'styled-components'
 import theme from './theme/theme'
+import { Provider as AlertProvider, positions } from 'react-alert'
+// @ts-ignore
+import AlertTemplate from 'react-alert-template-basic'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,12 +18,20 @@ const queryClient = new QueryClient({
   },
 })
 
+const options = {
+  position: positions.TOP_CENTER,
+  timeout: 3000,
+  offset: '30px',
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
-          <App />
+          <AlertProvider template={AlertTemplate} {...options}>
+            <App />
+          </AlertProvider>
         </ThemeProvider>
       </QueryClientProvider>
     </Router>

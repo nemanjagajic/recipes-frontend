@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import $t from '../../i18n';
 import * as Styled from './AddCategory.styled'
 import { CategoryInput } from '../../ts/categoryTypes'
