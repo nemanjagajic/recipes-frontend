@@ -18,6 +18,10 @@ export const FormInput = styled.input`
   color: ${({ theme }) => theme.gray_200};
   width: 700px;
   
+  ::placeholder {
+    color: ${({ theme }) => theme.gray_500};
+  }
+  
   @media (max-width: 780px) {
     width: 90%
   }

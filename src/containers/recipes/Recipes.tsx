@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useFetchRecipes } from '../../hooks/recipes/useFetchRecipes'
 import * as Styled from './Recipes.styled'
 import { IMAGES_LOCATION } from '../../constants/constants'
@@ -20,6 +20,9 @@ type PropTypes = {
 const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
   const history = useHistory()
   const isSignedIn = !!localStorage.getItem('token')
+
+  const [searchText, setSearchText] = useState<string>('')
+
   const { data: recipes, isFetching: isFetchingRecipes } = useFetchRecipes(categoryId)
   const { data: categories } = useFetchCategories()
   const { mutate: deleteCategory } = useDeleteCategory(() => history.push('/'))
@@ -46,11 +49,31 @@ const Recipes = ({ categoryId, setNavbarTitle }: PropTypes) => {
     }
   }
 
+  const onChange = (e: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> | any) => {
+    const { value } = e.currentTarget
+    setSearchText(value)
+  }
+
+  const filteredRecipes = searchText
+    ? recipes?.filter((recipe) => recipe.title.toLowerCase().includes(searchText.toLowerCase()))
+    : recipes
+
   return (
     <Styled.Wrapper>
+      <Styled.SearchWrapper>
+        <Styled.SearchInput
+          placeholder={$t('recipes.searchPlaceholder')}
+          value={searchText}
+          onChange={onChange}
+        />
+      </Styled.SearchWrapper>
       <Grid>
-        {!isFetchingRecipes && recipes?.length === 0 && <Styled.NoRecipesText>{$t('categories.noRecipesForCategory')}</Styled.NoRecipesText>}
-        {!isFetchingRecipes && recipes?.map(recipe => (
+        {!isFetchingRecipes && filteredRecipes?.length === 0 && (
+          recipes?.length === 0
+            ? <Styled.NoRecipesText>{$t('categories.noRecipesForCategory')}</Styled.NoRecipesText>
+            : <Styled.NoRecipesText>{$t('categories.noRecipesForSearchText')}</Styled.NoRecipesText>
+        )}
+        {!isFetchingRecipes && filteredRecipes?.map(recipe => (
           <Grid.Unit
             key={recipe._id}
             size={{tablet: 1 / 2, desktop: 1 / 3}}

@@ -81,3 +81,30 @@ export const DeleteBtn = styled.div`
   cursor: pointer;
   margin: 40px auto;
 `
+
+export const SearchWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+`
+
+export const SearchInput = styled.input`
+  padding: 15px;
+  outline: none !important;
+  background-color: ${({ theme }) => theme.gray_100};
+  border-radius: 20px;
+  font-size: 16px;
+  color: ${({ theme }) => theme.gray_200};
+  width: 500px;
+  border: ${({ theme }) => `1px solid ${theme.gray_400}`};
+  
+  ::placeholder {
+    color: ${({ theme }) => theme.gray_500};
+  }
+  
+  @media (max-width: 780px) {
+    width: 90%
+  }
+`
