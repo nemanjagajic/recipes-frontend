@@ -1,0 +1,46 @@
+{
+  "common": {
+    "back": "Nazad"
+  },
+  "auth": {
+    "buttons": {
+      "logIn": "Uloguj se",
+      "logOut": "Izloguj se"
+    },
+    "placeholders": {
+      "email": "Email",
+      "password": "Šifra"
+    }
+  },
+  "dashboard": {
+    "mainPage": "Kategorije hrane",
+    "addImage": "Dodaj sliku",
+    "addImages": "Dodaj slike",
+    "title": "Upravljanje receptima"
+  },
+  "home": {
+    "title": "Draganina kuhinja"
+  },
+  "recipes": {
+    "title": "Naslov",
+    "shortDescription": "Kratak opis",
+    "description": "Opis",
+    "addRecipe": "Dodaj recept",
+    "publishRecipe": "Objavi recept",
+    "selectOption": "-- izaberi kategoriju --",
+    "recipe": "Recept",
+    "deleteRecipeAlert": "Da li ste sigurni da želite da obrišete ovaj recept?",
+    "deleteRecipe": "Obriši recept",
+    "searchPlaceholder": "Pretraži recept po njegovom naslovu"
+  },
+  "categories": {
+    "title": "Naslov",
+    "description": "Opis",
+    "addCategory": "Dodaj kategoriju",
+    "publishCategory": "Objavi kategoriju",
+    "noRecipesForCategory": "Nijedan recept nije još uvek dodat za kategoriju",
+    "noRecipesForSearchText": "Nijedan recept ne odgovara datoj pretrazi",
+    "deleteCategoryAlert": "Da li ste sigurni da želite da obrišete ovu kategoriju?",
+    "deleteCategory": "Obriši kategoriju"
+  }
+}
