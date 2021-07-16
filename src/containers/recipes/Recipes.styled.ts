@@ -6,12 +6,15 @@ export const Wrapper = styled.div`
 `
 
 export const RecipeTitle = styled.div`
-  font-size: 22px;
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.main};
-  padding: 10px;
-  width: 100%;
+  font-size: 20px;
+  color: ${({ theme }) => theme.gray_600};
+  background-color: ${({ theme }) => theme.white};
+  padding: 10px 20px;
   text-align: center;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: ${({ theme }) => `1px solid ${theme.gray_400}`};
+  min-width: 100px;
 `
 
 export const RecipeItem = styled.div`
@@ -24,7 +27,7 @@ export const RecipeItem = styled.div`
   align-items: flex-end;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
   overflow: hidden;
   position: relative;
   &:hover {
@@ -53,7 +56,6 @@ export const ImagePlaceholder = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.gray_400};
-  margin-bottom: 10px;
 `
 
 export const TitleWrapper = styled.div`
