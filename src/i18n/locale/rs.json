@@ -32,7 +32,8 @@
     "deleteRecipeAlert": "Da li ste sigurni da želite da obrišete ovaj recept?",
     "deleteRecipe": "Obriši recept",
     "searchPlaceholder": "Pretraži recept po njegovom naslovu",
-    "successfullyPublishedRecipe": "Recept je uspešno dodat"
+    "successfullyPublishedRecipe": "Recept je uspešno dodat",
+    "addingRecipe": "Dodajem recept..."
   },
   "categories": {
     "title": "Naslov",
@@ -43,6 +44,7 @@
     "noRecipesForSearchText": "Nijedan recept ne odgovara datoj pretrazi",
     "deleteCategoryAlert": "Da li ste sigurni da želite da obrišete ovu kategoriju?",
     "deleteCategory": "Obriši kategoriju",
-    "successfullyPublishedCategory": "Kategorija je uspešno dodata"
+    "successfullyPublishedCategory": "Kategorija je uspešno dodata",
+    "addingCategory": "Dodajem kategoriju..."
   }
 }

@@ -32,7 +32,8 @@
     "deleteRecipeAlert": "Are you sure you want to delete this recipe?",
     "deleteRecipe": "Delete recipe",
     "searchPlaceholder": "Search recipes by recipe name",
-    "successfullyPublishedRecipe": "Successfully published recipe"
+    "successfullyPublishedRecipe": "Successfully published recipe",
+    "addingRecipe": "Adding recipe..."
   },
   "categories": {
     "title": "Title",
@@ -43,6 +44,7 @@
     "noRecipesForSearchText": "No recipes that match given search text",
     "deleteCategoryAlert": "Are you sure you want to delete this category?",
     "deleteCategory": "Delete category",
-    "successfullyPublishedCategory": "Successfully published category"
+    "successfullyPublishedCategory": "Successfully published category",
+    "addingCategory": "Adding category..."
   }
 }

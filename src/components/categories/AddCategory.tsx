@@ -12,7 +12,7 @@ const AddCategory = () => {
     setCategoryData({ description: '', title: '', image: null })
   }
 
-  const { mutate: addCategory, error } = useAddCategory(clearInput)
+  const { mutate: addCategory, error, isLoading } = useAddCategory(clearInput)
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
@@ -57,8 +57,8 @@ const AddCategory = () => {
       />
       <Styled.FormSubmit
         type={'submit'}
-        value={$t('categories.publishCategory')}
-        disabled={!isValid()}
+        value={isLoading ? $t('categories.addingCategory') : $t('categories.publishCategory')}
+        disabled={!isValid() || isLoading}
         onClick={handleAddCategory}
       />
       {typeof error === 'string' && error}

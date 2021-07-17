@@ -20,7 +20,7 @@ const AddRecipe = () => {
     }
   }
 
-  const { mutate: addRecipe, error } = useAddRecipe(clearInput)
+  const { mutate: addRecipe, error, isLoading } = useAddRecipe(clearInput)
 
   const { data: categories } = useFetchCategories()
 
@@ -106,8 +106,8 @@ const AddRecipe = () => {
       />
       <Styled.FormSubmit
         type={'submit'}
-        value={$t('recipes.publishRecipe')}
-        disabled={!isValid()}
+        value={isLoading ? $t('recipes.addingRecipe') : $t('recipes.publishRecipe')}
+        disabled={!isValid() || isLoading}
         onClick={handleAddRecipe}
       />
       {typeof error === 'string' && error}
